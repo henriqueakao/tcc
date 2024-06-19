@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #50727B;       /* Cor do header */
+  --secondary-color: #78A083;     /* Cor secundária para detalhes */
+  --background-color: #35374B;    /* Cor de fundo */
+  --card-color: #000000;          /* Cor do card de listagem */
+  --text-color: #ffffff;          /* Cor do texto (branco para melhor contraste) */
+}
+
+body {
+  font-family: "Play", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-left: 5%;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.item {
+  margin-right: 5%;
+}
+
+.navbar {
+  background-color: var(--primary-color); /* Cor de fundo do header */
+}
+
+.navbar-brand,
+.nav-link {
+  font-weight: bold;
+  color: var(--text-color); /* Cor do texto no header */
+}
+
+.nav-link {
+  margin-right: 10px;
+}
+
+.border-end {
+  border-right: 1px solid #78a083;
+  height: 100%;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #78a083;
+  padding-bottom: 0.5rem;
+}
+
+.card {
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--text-color); /* Cor do texto dentro do card */
+}
+
+.card-body .img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body hr {
+  border-top: 1px solid #78a083;
+}
+
+.card-title {
+  color: var(--text-color); /* Cor do título do card */
+  font-size: xx-large;
+  margin-bottom: 1rem;;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color); /* Cor do botão */
+  border-color: var(--secondary-color); /* Cor da borda do botão */
+  color: var(--text-color); /* Cor do texto do botão */
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color); /* Mudança de cor ao passar o mouse */
+  border-color: var(--primary-color); /* Mudança de cor ao passar o mouse */
+  color: var(--text-color); /* Cor do texto ao passar o mouse */
+}
+
+.btn-link {
+  color: var(--text-color); /* Cor do texto do botão link */
+}
+
+.divider-small {
+  width: 85%;
+  border: 0;
+  border-top: 1px solid #dee2e6;
+  margin: 0 auto;
+}
+
+.divider-large {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #dee2e6;
+  margin: 1rem auto;
+}
+
+.homepage-image {
+  opacity: 60%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 100vw;
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+
+.short-description, .expanded-description {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: calc(10%);
+  padding-right: calc(10%);
+}
+
+.position-relative {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-text-overlay {
+  position: absolute;
+  margin-top: 1rem;
+  top: 15px;
+  left: 20
+}
+
+.image-text-overlay p {
+  margin-left: 3rem;
+}
