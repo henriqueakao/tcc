@@ -3,6 +3,8 @@ import { Row, Col, Button, Collapse, Badge } from 'react-bootstrap';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import NewListingModal from './newListingModal';
 import { Listing } from '../models/listing';
+import PaymentModal from './paymentModal';
+import { CreditCard } from '../models/creditCard';
 
 interface ListingCardProps {
   listings: Listing[];
@@ -12,6 +14,13 @@ const ListingCard: React.FC<ListingCardProps> = () => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedListing, setSelectedListing] = useState<string | null>(null);
+  const [cards, setCards] = useState([]);
+
+  const handleAddCard = (newCard: CreditCard) => {
+    setCards([...cards, newCard]);
+  };
 
   const handleToggle = (key: string) => {
     setExpanded(expanded === key ? null : key);
@@ -106,14 +115,17 @@ const ListingCard: React.FC<ListingCardProps> = () => {
     }
   };
 
-  const handleDelete = async (key: string) => {
+  const handlePayment = async (selectedCard: string) => {
+    if (!selectedListing) return;
+
     try {
-      const response = await fetch(`http://localhost:8080/carboncredit/${key}`, {
+      const response = await fetch(`http://localhost:8080/carboncredit/${selectedListing}`, {
         method: 'DELETE',
       });
 
       if (response.ok) {
-        setListings(listings.filter((listing) => listing.key !== key));
+        setListings(listings.filter((listing) => listing.key !== selectedListing));
+        setShowPaymentModal(false);
       } else {
         console.error('Failed to delete the item');
       }
@@ -122,14 +134,18 @@ const ListingCard: React.FC<ListingCardProps> = () => {
     }
   };
 
+  const handleShowPaymentModal = (key: string) => {
+    setSelectedListing(key);
+    setShowPaymentModal(true);
+  };
   return (
     <div className="card text-white">
       <div className="card-body">
         <Row className="align-items-center mb-3 border-bottom">
           <Col xs={4} className="border-end"><strong>Projeto</strong></Col>
-          <Col xs={3} className="border-end"><strong>Disponível</strong></Col>
+          <Col xs={2} className="border-end"><strong>Disponível</strong></Col>
           <Col xs={2} className="border-end"><strong>Tipo de Crédito</strong></Col>
-          <Col xs={2}><strong>Ações</strong></Col>
+          <Col xs={3}><strong>Ações</strong></Col>
           <Col xs={1} className="text-end">
             <Button variant="primary" className="align-self-center" onClick={() => setShowModal(true)}>Vender</Button>
           </Col>
@@ -148,7 +164,7 @@ const ListingCard: React.FC<ListingCardProps> = () => {
                   {listing.contactEmail}
                 </a>
               </Col>
-              <Col xs={3} className="border-end">
+              <Col xs={2} className="border-end">
                 <Badge bg={listing.status === 'online' ? 'success' : 'secondary'}>
                   {listing.status === 'online' ? 'Online' : 'Offline'}
                 </Badge>
@@ -160,11 +176,11 @@ const ListingCard: React.FC<ListingCardProps> = () => {
               <Col xs={2} className="border-end">
                 <Badge bg={getCreditTypeColor(listing.creditType)}>{getCreditTypeDescription(listing.creditType)}</Badge>
               </Col>
-              <Col xs={3} className="d-flex justify-content-between align-items-center">
+              <Col xs={4} className="d-flex justify-content-between align-items-center">
                 <strong>{listing.price}</strong>
                 <strong>{listing.amount} ton</strong>
                 <div className="d-flex align-items-center">
-                  <Button variant="primary" size="sm" className="me-2" onClick={() => handleDelete(listing.key)}>
+                  <Button variant="primary" size="sm" className="me-2" onClick={() => handleShowPaymentModal(listing.key)}>
                     Comprar
                   </Button>
                   <Button variant="link" onClick={() => handleToggle(listing.key)} className="text-white">
@@ -188,6 +204,7 @@ const ListingCard: React.FC<ListingCardProps> = () => {
         ))}
       </div>
       <NewListingModal show={showModal} handleClose={() => setShowModal(false)} handleSave={handleSave} />
+      <PaymentModal show={showPaymentModal} handleClose={() => setShowPaymentModal(false)} handlePayment={handlePayment} handleAddCard={handleAddCard} cards={cards} />
     </div>
   );
 };
