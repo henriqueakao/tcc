@@ -12,6 +12,7 @@ const NewListingModal: React.FC<NewListingModalProps> = ({ show, handleClose, ha
     owner: 'CBA',
     contactEmail: 'esg@cba.com.br',
     categoryName: '',
+    detailedDescription: '',
     amount: '',
     categoryPrice: '',
   });
@@ -31,14 +32,6 @@ const NewListingModal: React.FC<NewListingModalProps> = ({ show, handleClose, ha
     <Modal show={show} onHide={handleClose} className="modal-dark">
       <Modal.Header closeButton className="bg-dark text-white">
         <Modal.Title>Vender Crédito</Modal.Title>
-        <Button 
-          variant="link" 
-          onClick={handleClose} 
-          className="text-white" 
-          aria-label="Close"
-        >
-          &times;
-        </Button>
       </Modal.Header>
       <Modal.Body className="bg-dark text-white">
         <Form onSubmit={handleSubmit}>
@@ -53,11 +46,11 @@ const NewListingModal: React.FC<NewListingModalProps> = ({ show, handleClose, ha
               className="bg-dark text-white"
             >
               <option value="">Selecione...</option>
-              <option value="RENEWABLE_ENERGY">Energia Renovável</option>
+              <option value="OTHER">Agro</option>
               <option value="FOREST_CONSERVATION">Conservação Florestal</option>
               <option value="ENERGY_EFFICIENCY">Eficiência Energética</option>
+              <option value="RENEWABLE_ENERGY">Energia Renovável</option>
               <option value="WASTE_MANAGEMENT">Gestão de Resíduos</option>
-              <option value="OTHER">Outro</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="formAmount" className="mb-3">
@@ -84,6 +77,17 @@ const NewListingModal: React.FC<NewListingModalProps> = ({ show, handleClose, ha
               className="bg-dark text-white"
             />
           </Form.Group>
+          <Form.Group controlId="formDetailedDescription" className="mb-3">
+                <Form.Label>Descrição Detalhada</Form.Label>
+                <Form.Control
+                as="textarea"
+                name="detailedDescription"
+                value={newListing.detailedDescription}
+                onChange={handleChange}
+                placeholder="Digite uma descrição detalhada"
+                className="bg-dark text-white"
+                />
+            </Form.Group>
           <Button variant="primary" type="submit">
             Salvar
           </Button>

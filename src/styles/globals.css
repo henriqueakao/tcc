@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #50727B;       /* Cor do header */
-  --secondary-color: #78A083;     /* Cor secundária para detalhes */
+  --primary-color: #0ba74fc1;       /* Cor do header */
+  --secondary-color: #198754 ;     /* Cor secundária para detalhes */
   --background-color: #35374B;    /* Cor de fundo */
   --card-color: #000000;          /* Cor do card de listagem */
   --text-color: #ffffff;          /* Cor do texto (branco para melhor contraste) */
@@ -18,10 +18,6 @@ body {
 
 h1 {
   margin-left: 5%;
-}
-
-.container {
-  margin-top: 20px;
 }
 
 .item {
@@ -106,8 +102,7 @@ h1 {
 
 .homepage-image {
   opacity: 60%;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 100vw;
   overflow-x: hidden;
   border-radius: 10px;

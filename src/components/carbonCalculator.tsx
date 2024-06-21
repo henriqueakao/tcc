@@ -86,7 +86,7 @@ const CarbonCalculator: React.FC = () => {
           </Col>
           <Col md={6}>
             <Form.Group controlId="formLitrosGasolina" className="mb-3">
-              <Form.Label>Litros gasolina</Form.Label>
+              <Form.Label>Litros de gasolina</Form.Label>
               <Form.Control
                 type="number"
                 name="litrosGasolina"

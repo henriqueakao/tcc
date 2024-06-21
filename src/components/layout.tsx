@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Project TCC</title>
+        <title>GreenTide</title>
         <meta name="description" content="Facilitating the connection between carbon credit buyers and sellers." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Container>
           <Navbar.Brand>
             <Link href="/" legacyBehavior>
-              <a className="navbar-brand">Project TCC</a>
+              <a className="navbar-brand">GreenTide</a>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
