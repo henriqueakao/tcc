@@ -6,7 +6,7 @@ export interface Listing {
     status: string;
     lastOnline: string;
     creditType: string;
-    amount: string;
+    amount: number;
     price: string;
   }
   

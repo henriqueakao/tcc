@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #0ba74fc1;       /* Cor do header */
+  --primary-color: #303030;       /* Cor do header */
   --secondary-color: #198754 ;     /* Cor secundária para detalhes */
-  --background-color: #35374B;    /* Cor de fundo */
-  --card-color: #000000;          /* Cor do card de listagem */
+  --background-color: #246345;    /* Cor de fundo */
+  --card-color: #303030;          /* Cor do card de listagem */
   --text-color: #ffffff;          /* Cor do texto (branco para melhor contraste) */
 }
 
@@ -62,6 +62,10 @@ h1 {
 
 .card-body hr {
   border-top: 1px solid #78a083;
+}
+
+.card-color {
+  background-color: var(--card-color);
 }
 
 .card-title {

@@ -10,8 +10,8 @@ const Home: React.FC = () => {
       <div className="position-relative">
         <Image className="homepage-image" src="images/HomePagePictureRatio.jpg" fluid style={{ width: '100%' }} />
         <div className="image-text-overlay">
-          <h1>Welcome to GreenTide</h1>
-          <p>Connecting buyers and sellers of carbon credits to promote sustainability.</p>
+          <h1>Bem-vindos ao TerraCredits</h1>
+          <p>Conectando vendedores e compradores de crédito de carbono para promover a sustentabilidade.</p>
         </div>
       </div>
       <ListingCard listings={[]}  />

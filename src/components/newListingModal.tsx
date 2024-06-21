@@ -30,10 +30,10 @@ const NewListingModal: React.FC<NewListingModalProps> = ({ show, handleClose, ha
 
   return (
     <Modal show={show} onHide={handleClose} className="modal-dark">
-      <Modal.Header closeButton className="bg-dark text-white">
+      <Modal.Header closeButton className="card-color text-white">
         <Modal.Title>Vender Crédito</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="bg-dark text-white">
+      <Modal.Body className="card-color text-white">
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formCategoryName" className="mb-3">
             <Form.Label>Tipo de Crédito</Form.Label>

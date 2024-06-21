@@ -64,7 +64,7 @@ const ListingCard: React.FC<ListingCardProps> = () => {
           lastOnline: credit.lastOnline || '',
           creditType: credit.categoryName,
           amount: credit.amount,
-          price: `$${credit.categoryPrice}/ton`
+          price: `$${credit.categoryPrice}/lote`
         }));
         setListings(formattedData);
       })
@@ -94,7 +94,7 @@ const ListingCard: React.FC<ListingCardProps> = () => {
           lastOnline: newCredit.lastOnline || '',
           creditType: newCredit.categoryName,
           amount: newCredit.amount,
-          price: `$${newCredit.categoryPrice}/ton`
+          price: `$${newCredit.categoryPrice}/lote`
         };
         setListings([...listings, newListingFormatted]);
         setShowModal(false);
@@ -123,7 +123,7 @@ const ListingCard: React.FC<ListingCardProps> = () => {
   };
 
   return (
-    <div className="card bg-dark text-white">
+    <div className="card text-white">
       <div className="card-body">
         <Row className="align-items-center mb-3 border-bottom">
           <Col xs={4} className="border-end"><strong>Projeto</strong></Col>
@@ -162,13 +162,15 @@ const ListingCard: React.FC<ListingCardProps> = () => {
               </Col>
               <Col xs={3} className="d-flex justify-content-between align-items-center">
                 <strong>{listing.price}</strong>
-                <br />
-                <Button variant="primary" size="sm" className="me-2" onClick={() => handleDelete(listing.key)}>
-                  Comprar
-                </Button>
-                <Button variant="link" onClick={() => handleToggle(listing.key)} className="text-white">
-                  {expanded === listing.key ? <FaArrowUp /> : <FaArrowDown />}
-                </Button>
+                <strong>{listing.amount} ton</strong>
+                <div className="d-flex align-items-center">
+                  <Button variant="primary" size="sm" className="me-2" onClick={() => handleDelete(listing.key)}>
+                    Comprar
+                  </Button>
+                  <Button variant="link" onClick={() => handleToggle(listing.key)} className="text-white">
+                    {expanded === listing.key ? <FaArrowUp /> : <FaArrowDown />}
+                  </Button>
+                </div>
               </Col>
             </Row>
             <Collapse in={expanded === listing.key}>

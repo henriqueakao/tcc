@@ -42,7 +42,7 @@ const CarbonCalculator: React.FC = () => {
   };
 
   return (
-    <div className="bg-dark text-white p-4 rounded">
+    <div className="card text-white p-4 rounded">
       <h3>Calculadora de Crédito de Carbono</h3>
       <Form onSubmit={handleSubmit}>
         <Row>
